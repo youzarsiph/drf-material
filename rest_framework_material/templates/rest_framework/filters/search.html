@@ -1,0 +1,22 @@
+{% load i18n %}
+
+<h5>{% translate "Search" %}</h5>
+<form class="form-inline">
+  <div class="form-group">
+    <div class="input-group">
+      <input
+        type="search"
+        class="form-control"
+        name="{{ param }}"
+        value="{{ term }}"
+        placeholder="{% translate "Type here to search..." %}"
+      />
+      <button class="btn btn-lg btn-outline-primary" type="submit">
+        <strong class="d-flex align-items-center gap-3">
+          <i class="bi bi-search"></i>
+          {% translate "Search" %}
+        </strong>
+      </button>
+    </div>
+  </div>
+</form>

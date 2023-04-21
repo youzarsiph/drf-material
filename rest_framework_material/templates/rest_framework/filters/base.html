@@ -1,0 +1,29 @@
+{% load i18n %}
+
+<div class="modal fade" id="filtersModal" tabindex="-1" aria-labelledby="filters" role="dialog" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content p-md-3 p-lg-4 rounded-4 shadow">
+      <div class="modal-header border-bottom-0">
+        <h3 class="modal-title" id="filters">
+          {% translate "Filters" %}
+        </h3>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="d-grid gap-4">
+          {% for element in elements %}
+            <div>
+              {{ element }}
+            </div>
+          {% endfor %}
+          <button type="button" class="btn btn-lg btn-outline-secondary" data-bs-dismiss="modal">
+            <strong class="d-flex align-item-center justify-content-center gap-3">
+              <i class="bi bi-x-lg"></i>
+              {% translate "Cancel" %}
+            </strong>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

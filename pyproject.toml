@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "rest-framework-material"
+version = "0.1.0"
+description = "Redesign of the browsable api of Django REST Framework using MD Bootstrap"
+authors = ["Yousef Abu Shanab <josephyousef249@gmail.com>"]
+license = "MIT"
+readme = "README.md"
+packages = [{include = "rest_framework_material"}]
+homepage = "https://github.com/youzarsiph/rest-framework-redesign/"
+repository = "https://github.com/youzarsiph/rest-framework-redesign/"
+
+[tool.poetry.dependencies]
+python = "^3.9"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

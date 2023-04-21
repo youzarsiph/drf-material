@@ -1,0 +1,35 @@
+<div class="{% if style.input_type != "file" %}form-floating {% endif %}mb-4">
+  {% if field.label and style.input_type == "file" %}
+    <label class="form-label {% if style.hide_label %}sr-only{% endif %}">
+      {{ field.label }}
+    </label>
+  {% endif %}
+
+  <input
+    name="{{ field.name }}"
+    class="form-control {% if field.errors %}is-invalid{% endif %}"
+    type="{{ style.input_type }}"
+    {% if style.placeholder %}placeholder="{{ style.placeholder }}"{% endif %}
+    {% if field.value is not None %}value="{{ field.value }}"{% endif %}
+    {% if style.autofocus and style.input_type != "hidden" %}autofocus{% endif %}
+  />
+
+  {% if field.label and style.input_type != "file" %}
+    <label class="form-label {% if style.hide_label %}sr-only{% endif %}">
+      {{ field.label }}
+    </label>
+  {% endif %}
+
+    {% if field.help_text %}
+      <small class="d-block text-muted">{{ field.help_text|safe }}</small>
+    {% endif %}
+
+    {% if field.errors %}
+      <div class="mt-3"></div>
+      {% for error in field.errors %}
+        <div role="alert" class="alert alert-warning mb-3">
+          <p>{{ error }}</p>
+        </div>
+      {% endfor %}
+    {% endif %}
+</div>
