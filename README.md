@@ -1,10 +1,10 @@
 # rest-framework-material
 
-Redesign of the browsable api of Django REST Framework using MD Bootstrap
+Redesign of the browsable API of Django REST Framework using MD Bootstrap.
+
+The project aims to improve the look and feel of the API.
 
 ## Get started
-
-To get started with rest-framework-material:
 
 Install the package:
 
@@ -40,4 +40,4 @@ urlpatterns = [
 ]
 ```
 
-I hope you that you find this useful.
+I hope you find this useful.
