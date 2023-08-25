@@ -1,11 +1,11 @@
 {% load i18n rest_framework %}
 
 <h5>{% translate "Ordering" %}</h5>
-<ul class="card card-body rounded-3 list-group">
+<ul class="list-unstyled d-grid gap-4">
   {% for key, label in options %}
-    <li class="list-group-item border-0 px-4">
-      <a href="{% add_query_param request param key %}" class="d-flex align-items-center text-decoration-none gap-3">
-        <div class="form-check">
+    <li>
+      <a href="{% add_query_param request param key %}" class="d-flex align-items-center text-decoration-none gap-4">
+        <div class="form-check d-flex align-items-center justify-content-center">
           {% if key == current %}
             <input type="radio" id="{{ key }}" checked class="form-check-input" name="order">
           {% else %}

@@ -1,7 +1,7 @@
 [tool.poetry]
 name = "rest-framework-material"
-version = "0.1.8"
-description = "Redesign of the browsable api of Django REST Framework using MD Bootstrap"
+version = "0.1.9"
+description = "Material design for Django REST Framework API"
 authors = ["Yousef Abu Shanab <josephyousef249@gmail.com>"]
 license = "MIT"
 readme = "README.md"
