@@ -15,19 +15,7 @@
 {% endblock %}
 
 <style>
-  {
-    % if code_style %
-  }
-
-    {
-      {
-      code_style
-    }
-  }
-
-    {
-    % endif %
-  }
+  {% if code_style %}{{ code_style }}{% endif %}
 
   .dropdown-toggle::after {
     content: none;
@@ -219,8 +207,8 @@
               <li>
                 <a class="dropdown-item" href="{% add_query_param request api_settings.URL_FORMAT_OVERRIDE format %}"
                   rel="nofollow" data-mdb-toggle="tooltip"
-                  title="Make a GET request on the {{ name }} resource with the format set to `{{ format }}`">
-                  {{ format }}
+                  title="Make a GET request on the {{ name }} resource with the format set to `{{ format|upper }}`">
+                  {{ format|upper }}
                 </a>
               </li>
               {% endfor %}
