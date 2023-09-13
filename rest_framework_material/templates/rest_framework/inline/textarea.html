@@ -1,7 +1,7 @@
 <div class="d-grid gap-1 mb-4">
   <div class="input-group">
     {% if field.label %}
-      <label class="input-group-text{% if style.hide_label %} sr-only{% endif %}">
+      <label for="{{ field.name }}" class="input-group-text{% if style.hide_label %} sr-only{% endif %}">
         {{ field.label }}
       </label>
     {% endif %}
