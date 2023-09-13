@@ -197,7 +197,7 @@
               data-mdb-toggle="dropdown" aria-expanded="false">
               <i class="bi bi-chevron-down"></i>
             </button>
-            <ul class="dropdown-menu dropdown-menu-end rounded-5 shadow-sm" aria-labelledby="dropdownMenuButton">
+            <ul class="dropdown-menu dropdown-menu-end rounded-5 shadow-sm w-100" aria-labelledby="dropdownMenuButton">
               <li>
                 <h6 class="dropdown-header">
                   {% translate 'Select a format' %}
@@ -230,7 +230,7 @@
 
     {% if options_form %}
     <form class="button-form" action="{{ request.get_full_path }}" data-method="OPTIONS">
-      <button type="submit" class="btn btn-lg btn-secondary w-100 rounded-5"
+      <button type="submit" class="btn btn-lg btn-dark w-100 rounded-5"
         title="Make an OPTIONS request on the {{ name }} resource" data-mdb-toggle="tooltip">
         <span class="d-flex align-items-center justify-content-center gap-4">
           <i class="bi bi-info-square"></i>
@@ -295,7 +295,12 @@
           <i class="bi bi-chevron-down"></i>
         </span>
       </button>
-      <ul class="dropdown-menu rounded-5 shadow-sm" aria-labelledby="extra-actions-menu">
+      <ul class="dropdown-menu rounded-5 shadow-sm w-100" aria-labelledby="extra-actions-menu">
+        <li>
+          <h3 class="dropdown-header">
+            {% translate 'Select an action' %}
+          </h3>
+        </li>
         {% for action_name, url in extra_actions|items %}
         <li>
           <a class="dropdown-item" href="{{ url }}">
