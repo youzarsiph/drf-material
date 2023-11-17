@@ -1,5 +1,6 @@
 <div class="form-floating mb-4">
   <textarea name="{{ field.name }}"
+    {% if field.required %}required{% endif %}
     class="form-control {% if field.errors %}is-invalid{% endif %}"
     {% if style.rows %}rows="{{ style.rows }}"{% endif %}
     {% if style.placeholder %}placeholder="{{ style.placeholder }}"{% endif %}
@@ -8,6 +9,7 @@
   {% if field.label %}
     <label class="form-label {% if style.hide_label %}sr-only{% endif %}">
       {{ field.label }}
+      {% if field.required %}<span class="text-danger">*</span>{% endif %}
     </label>
   {% endif %}
 

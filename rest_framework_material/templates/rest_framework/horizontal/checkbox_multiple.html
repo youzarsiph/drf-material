@@ -4,6 +4,7 @@
   {% if field.label %}
   <label class="form-label {% if style.hide_label %}sr-only{% endif %}">
     {{ field.label }}
+    {% if field.required %}<span class="text-danger">*</span>{% endif %}
   </label>
   {% endif %}
 
@@ -12,11 +13,12 @@
       {% for key, text in field.choices|items %}
         <div class="form-check">
           <input
-            type="checkbox"
-            name="{{ field.name }}"
-            value="{{ key }}"
             id="{{ key }}"
+            type="checkbox"
+            value="{{ key }}"
+            name="{{ field.name }}"
             class="form-check-input"
+            {% if field.required %}required{% endif %}
             {% if key|as_string in field.value|as_list_of_strings %}checked{% endif %}
           />
           <label class="form-check-label" for="{{ key }}"> {{ text }} </label>
@@ -26,11 +28,12 @@
       {% for key, text in field.choices|items %}
         <div class="form-check">
           <input
-            type="checkbox"
-            name="{{ field.name }}"
-            value="{{ key }}"
             id="{{ key }}"
+            type="checkbox"
+            value="{{ key }}"
+            name="{{ field.name }}"
             class="form-check-input"
+            {% if field.required %}required{% endif %}
             {% if key|as_string in field.value|as_list_of_strings %}checked{% endif %}
           />
           <label class="form-check-label" for="{{ key }}"> {{ text }} </label>

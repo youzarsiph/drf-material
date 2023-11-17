@@ -1,511 +1,509 @@
 {% extends "rest_framework/base.html" %}
 
-{% load i18n static rest_framework %}
+{% load i18n static rest_framework rest_framework_material %}
 
 {% block meta %}
-{{ block.super }}
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  {{ block.super }}
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 {% endblock %}
 
 {% block style %}
-{% block bootstrap_theme %}
-<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet" />
-<link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.4.1/mdb.min.css" rel="stylesheet" />
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@latest/font/bootstrap-icons.css">
-{% endblock %}
+  {% block bootstrap_theme %}
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.4.2/mdb.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@latest/font/bootstrap-icons.css">
+  {% endblock %}
 
-<style>
-  {% if code_style %}{{ code_style }}{% endif %}
+  <style>
+    {% if code_style %}{{ code_style }}{% endif %}
 
-  .dropdown-toggle::after {
-    content: none;
-  }
-</style>
+    .dropdown-toggle::after {
+      content: none;
+    }
+  </style>
 {% endblock %}
 
 
 {% block navbar %}
-<header class="fixed-top p-1 p-md-2">
-  <div class="bg-danger px-2 px-md-3 shadow-sm rounded-5 border border-danger">
-    <div class="bg-dark px-2 px-md-3 rounded-5 shadow-sm">
-      <div class="bg-danger px-2 px-md-3 rounded-5 shadow-sm">
-        <nav
-          class="navbar navbar-expand-lg navbar-dark bg-dark rounded-5 shadow-sm {% block bootstrap_navbar_variant %}{% endblock %}"
-          role="navigation" aria-label="{% translate 'navbar' %}">
-          <div class="container-fluid">
-            {% block branding %}
-            <a class="navbar-brand d-flex align-item-center justify-content-center gap-1 bg-white rounded-5 px-2 shadow-sm"
-              rel="nofollow" href="https://www.django-rest-framework.org/">
-              <span class="fw-bold text-danger">[</span>
-              <span class="fw-bold text-dark">{</span>
-              <strong class="text-dark d-flex align-item-center justify-content-center">
-                <abbr title="Django Rest Framework" class="text-decoration-none" data-mdb-toggle="tooltip">
-                  {% translate 'DRF' %}
-                </abbr>
-              </strong>
-              <span class="fw-bold text-dark">}</span>
-              <span class="fw-bold text-danger">]</span>
-            </a>
-            {% endblock %}
+  <header class="fixed-top p-1 p-md-2">
+    <div class="bg-danger px-2 px-md-3 shadow-sm rounded-5 border border-danger">
+      <div class="bg-dark px-2 px-md-3 rounded-5 shadow-sm">
+        <div class="bg-danger px-2 px-md-3 rounded-5 shadow-sm">
+          <nav
+            class="navbar navbar-expand-lg navbar-dark bg-dark rounded-5 shadow-sm {% block bootstrap_navbar_variant %}{% endblock %}"
+            role="navigation" aria-label="{% translate 'navbar' %}">
+            <div class="container-fluid">
+              {% block branding %}
+                <a class="navbar-brand d-flex align-item-center justify-content-center gap-1 bg-white rounded-5 px-2 shadow-sm"
+                  rel="nofollow" href="https://www.django-rest-framework.org/">
+                  <span class="fw-bold text-danger">[</span>
+                  <span class="fw-bold text-dark">{</span>
+                  <strong class="text-dark d-flex align-item-center justify-content-center">
+                    <abbr title="Django Rest Framework" class="text-decoration-none" data-mdb-toggle="tooltip">
+                      {% translate 'DRF' %}
+                    </abbr>
+                  </strong>
+                  <span class="fw-bold text-dark">}</span>
+                  <span class="fw-bold text-danger">]</span>
+                </a>
+              {% endblock %}
 
-            <button type="button" class="navbar-toggler" data-mdb-toggle="collapse" data-mdb-target="#navbar"
-              aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon d-flex align-items-center justify-content-center">
-                <i class="bi bi-list fs-1"></i>
-              </span>
-            </button>
+              <button type="button" class="navbar-toggler" data-mdb-toggle="collapse" data-mdb-target="#navbar"
+                aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon d-flex align-items-center justify-content-center">
+                  <i class="bi bi-list fs-1"></i>
+                </span>
+              </button>
 
-            <div class="collapse navbar-collapse" id="navbar">
-              <ul class="navbar-nav me-auto">
-                <li class="nav-item">
-                  <a href="https://www.django-rest-framework.org/" class="nav-link">
-                    <strong class="d-flex align-items-center gap-3">
-                      <i class="bi bi-house-fill"></i>
-                      {% translate "Home" %}
-                    </strong>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="https://www.django-rest-framework.org/tutorial/quickstart/" class="nav-link">
-                    <strong class="d-flex align-items-center gap-3">
-                      <i class="bi bi-journal-code"></i>
-                      {% translate "Tutorial" %}
-                    </strong>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="https://github.com/encode/django-rest-framework/" class="nav-link">
-                    <strong class="d-flex align-items-center gap-3">
-                      <i class="bi bi-github"></i>
-                      {% translate "Github" %}
-                    </strong>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="https://github.com/youzarsiph/rest-framework-material/" class="nav-link">
-                    <strong class="d-flex align-items-center gap-3">
-                      <i class="bi bi-code-slash"></i>
-                      {% translate "Material" %}
-                    </strong>
-                  </a>
-                </li>
-              </ul>
-              <ul class="navbar-nav">
-                <li class="nav-item dropdown">
-                  <a href="#" class="nav-link" data-mdb-toggle="dropdown">
-                    <strong class="d-flex align-items-center justify-content-between gap-3">
-                      <span class="d-flex align-item-center gap-3">
-                        <i class="bi bi-person-fill"></i>
+              <div class="collapse navbar-collapse" id="navbar">
+                <ul class="navbar-nav me-auto">
+                  <li class="nav-item">
+                    <a href="https://www.django-rest-framework.org/" class="nav-link">
+                      <strong class="d-flex align-items-center gap-3">
+                        <i class="bi bi-house-fill"></i>
+                        {% translate "Home" %}
+                      </strong>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="https://www.django-rest-framework.org/tutorial/quickstart/" class="nav-link">
+                      <strong class="d-flex align-items-center gap-3">
+                        <i class="bi bi-journal-code"></i>
+                        {% translate "Tutorial" %}
+                      </strong>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="https://github.com/encode/django-rest-framework/" class="nav-link">
+                      <strong class="d-flex align-items-center gap-3">
+                        <i class="bi bi-github"></i>
+                        {% translate "Github" %}
+                      </strong>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="https://github.com/youzarsiph/rest-framework-material/" class="nav-link">
+                      <strong class="d-flex align-items-center gap-3">
+                        <i class="bi bi-code-slash"></i>
+                        {% translate "Material" %}
+                      </strong>
+                    </a>
+                  </li>
+                </ul>
+                <ul class="navbar-nav">
+                  <li class="nav-item dropdown">
+                    <a href="#" class="nav-link" data-mdb-toggle="dropdown">
+                      <strong class="d-flex align-items-center justify-content-between gap-3">
+                        <span class="d-flex align-item-center gap-3">
+                          <i class="bi bi-person-fill"></i>
+                          {% if user.is_authenticated %}
+                            {{ request.user|capfirst }}
+                          {% else %}
+                            {% translate "Account" %}
+                          {% endif %}
+                        </span>
+                        <i class="bi bi-chevron-down"></i>
+                      </strong>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-end rounded-3 shadow">
+                      <li>
+                        <h5 class="dropdown-header">
+                          {% translate 'Account' %}
+                        </h5>
+                      </li>
+                      <li>
                         {% if user.is_authenticated %}
-                        {{ request.user|capfirst }}
+                          {% optional_logout request user %}
                         {% else %}
-                        {% translate "Account" %}
+                          {% optional_login request %}
                         {% endif %}
-                      </span>
-                      <i class="bi bi-chevron-down"></i>
-                    </strong>
-                  </a>
-                  <ul class="dropdown-menu dropdown-menu-end rounded-3 shadow">
-                    <li>
-                      <h5 class="dropdown-header">
-                        {% translate 'Account' %}
-                      </h5>
-                    </li>
-                    <li>
-                      {% if user.is_authenticated %}
-                      <a class="dropdown-item" href="{% url 'rest_framework:logout' %}">
-                        <strong class="d-flex align-items-center gap-3">
-                          <i class="bi bi-box-arrow-right"></i>
-                          {% translate 'Logout' %}
-                        </strong>
-                      </a>
-                      {% else %}
-                      <a class="dropdown-item" href="{% url 'rest_framework:login' %}">
-                        <strong class="d-flex align-items-center gap-3">
-                          <i class="bi bi-box-arrow-in-right"></i>
-                          {% translate 'Login' %}
-                        </strong>
-                      </a>
-                      {% endif %}
-                    </li>
-                  </ul>
-                </li>
-              </ul>
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+              </div>
             </div>
-          </div>
-        </nav>
+          </nav>
+        </div>
       </div>
     </div>
-  </div>
-</header>
+  </header>
 {% endblock %}
 
 
 {% block breadcrumbs %}
-<div class="pt-5">
-  <nav aria-label="breadcrumb" class="card card-body shadow-sm rounded-5 mb-4 mt-5 p-3">
-    <ol class="breadcrumb mb-0">
-      {% for breadcrumb_name, breadcrumb_url in breadcrumblist %}
-      {% if forloop.last %}
-      <li class="breadcrumb-item active" aria-current="page">
-        {{ breadcrumb_name }}
-      </li>
-      {% else %}
-      <li class="breadcrumb-item">
-        <a href="{{ breadcrumb_url }}">{{ breadcrumb_name }}</a>
-      </li>
-      {% endif %}
-      {% empty %}
-      {% block breadcrummdb_empty %}&nmdbp;{% endblock breadcrummdb_empty %}
-      {% endfor %}
-    </ol>
-  </nav>
-</div>
+  <div class="pt-5">
+    <nav aria-label="breadcrumb" class="card card-body shadow-sm rounded-5 mb-4 mt-5 p-3">
+      <ol class="breadcrumb mb-0">
+        {% for breadcrumb_name, breadcrumb_url in breadcrumblist %}
+        {% if forloop.last %}
+        <li class="breadcrumb-item active" aria-current="page">
+          {{ breadcrumb_name }}
+        </li>
+        {% else %}
+        <li class="breadcrumb-item">
+          <a href="{{ breadcrumb_url }}">{{ breadcrumb_name }}</a>
+        </li>
+        {% endif %}
+        {% empty %}
+        {% block breadcrummdb_empty %}&nmdbp;{% endblock breadcrummdb_empty %}
+        {% endfor %}
+      </ol>
+    </nav>
+  </div>
 {% endblock %}
 
 {% block content %}
-<main>
-  <section title="{% translate 'Page Header' %}">
-    <div class="page-header">
-      <h1 class="display-4">{{ name }}</h1>
-    </div>
-    <div class="lead">
-      {% block description %}
-      {{ description }}
-      {% endblock %}
-    </div>
-  </section>
+  <main>
+    <section title="{% translate 'Page Header' %}">
+      <div class="page-header">
+        <h1 class="display-4">{{ name }}</h1>
+      </div>
+      <div class="lead">
+        {% block description %}
+        {{ description }}
+        {% endblock %}
+      </div>
+    </section>
 
 
-  {% block request_forms %}
-  <section class="d-grid d-md-flex align-items-lg-center justify-content-lg-end gap-4 mb-4"
-    aria-label="{% translate 'Request form' %}">
-    {% if 'GET' in allowed_methods %}
-    <form id="get-form">
-      <fieldset>
-        {% if api_settings.URL_FORMAT_OVERRIDE %}
-        <div class="btn-group w-100 gap-4 rounded-5" role="group">
-          <a class="btn btn-lg btn-primary w-100 rounded-5" href="{{ request.get_full_path }}" rel="nofollow"
-            title="Make a GET request on the {{ name }} resource" data-mdb-toggle="tooltip">
-            <span class="d-flex align-items-center justify-content-center gap-4">
-              <i class="bi bi-arrow-clockwise"></i>
-              {% translate "GET" %}
-            </span>
-          </a>
-          <div class="dropdown">
-            <button class="btn btn-lg btn-outline-primary dropdown-toggle rounded-5" type="button" id="dropdownMenuButton"
-              data-mdb-toggle="dropdown" aria-expanded="false">
-              <i class="bi bi-chevron-down"></i>
-            </button>
-            <ul class="dropdown-menu dropdown-menu-end rounded-5 shadow-sm w-100" aria-labelledby="dropdownMenuButton">
-              <li>
-                <h6 class="dropdown-header">
-                  {% translate 'Select a format' %}
-                </h6>
-              </li>
-              {% for format in available_formats %}
-              <li>
-                <a class="dropdown-item" href="{% add_query_param request api_settings.URL_FORMAT_OVERRIDE format %}"
-                  rel="nofollow" data-mdb-toggle="tooltip"
-                  title="Make a GET request on the {{ name }} resource with the format set to `{{ format|upper }}`">
-                  {{ format|upper }}
-                </a>
-              </li>
-              {% endfor %}
-            </ul>
-          </div>
-        </div>
-        {% else %}
-        <a class="btn btn-lg btn-primary rounded-5" href="{{ request.get_full_path }}" rel="nofollow"
-          title="Make a GET request on the {{ name }} resource" data-mdb-toggle="tooltip">
-          <span class="d-flex align-items-center justify-content-center gap-4">
-            <i class="bi bi-arrow-clockwise"></i>
-            {% translate "GET" %}
-          </span>
-        </a>
-        {% endif %}
-      </fieldset>
-    </form>
-    {% endif %}
-
-    {% if options_form %}
-    <form class="button-form" action="{{ request.get_full_path }}" data-method="OPTIONS">
-      <button type="submit" class="btn btn-lg btn-dark w-100 rounded-5"
-        title="Make an OPTIONS request on the {{ name }} resource" data-mdb-toggle="tooltip">
-        <span class="d-flex align-items-center justify-content-center gap-4">
-          <i class="bi bi-info-square"></i>
-          {% translate "OPTIONS" %}
-        </span>
-      </button>
-    </form>
-    {% endif %}
-
-    {% if delete_form %}
-    <div>
-      <button type="button" class="btn btn-lg btn-danger w-100 rounded-5" data-mdb-toggle="modal"
-        data-mdb-target="#deleteModal" title="Make a DELETE request on the {{ name }} resource">
-        <span class="d-flex align-items-center justify-content-center gap-4">
-          <i class="bi bi-trash"></i>
-          {% translate "DELETE" %}
-        </span>
-      </button>
-    </div>
-
-    <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content p-md-3 p-lg-4 rounded-5 shadow">
-          <div class="modal-header border-bottom-0">
-            <h3 class="modal-title" id="exampleModalLabel">
-              {% translate 'Delete' %} {{ name }}
-            </h3>
-            <button type="button" class="btn-close" data-mdb-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <div class="modal-body">
-            <p class="mb-4">
-              {% translate "Are you sure you want to delete this" %} {{ name }}?
-            </p>
-            <div class="d-grid d-lg-flex align-items-lg-center gap-4">
-              <form class="button-form w-100" action="{{ request.get_full_path }}" data-method="DELETE">
-                <button class="btn btn-lg btn-danger w-100 rounded-5">
-                  <span class="d-flex align-item-center justify-content-center gap-4">
-                    <i class="bi bi-trash"></i>
-                    {% translate "Delete" %}
-                  </span>
-                </button>
-              </form>
-              <button type="button" class="btn btn-lg btn-outline-secondary w-100 rounded-5" data-mdb-dismiss="modal">
-                <span class="d-flex align-item-center justify-content-center gap-4">
-                  <i class="bi bi-x-lg"></i>
-                  {% translate "Cancel" %}
+    {% block request_forms %}
+    <section class="d-grid d-md-flex align-items-lg-center justify-content-lg-end gap-4 mb-4"
+      aria-label="{% translate 'Request form' %}">
+      {% if 'GET' in allowed_methods %}
+        <form id="get-form">
+          <fieldset>
+            {% if api_settings.URL_FORMAT_OVERRIDE %}
+            <div class="btn-group w-100 gap-4 rounded-5" role="group">
+              <a class="btn btn-lg btn-primary w-100 rounded-5" href="{{ request.get_full_path }}" rel="nofollow"
+                title="Make a GET request on the {{ name }} resource" data-mdb-toggle="tooltip">
+                <span class="d-flex align-items-center justify-content-center gap-4">
+                  <i class="bi bi-arrow-clockwise"></i>
+                  {% translate "GET" %}
                 </span>
-              </button>
+              </a>
+              <div class="dropdown">
+                <button class="btn btn-lg btn-outline-primary dropdown-toggle rounded-5" type="button" id="dropdownMenuButton"
+                  data-mdb-toggle="dropdown" aria-expanded="false">
+                  <i class="bi bi-chevron-down"></i>
+                </button>
+                <ul class="dropdown-menu dropdown-menu-end rounded-5 shadow-sm w-100" aria-labelledby="dropdownMenuButton">
+                  <li>
+                    <h6 class="dropdown-header">
+                      {% translate 'Select a format' %}
+                    </h6>
+                  </li>
+                  {% for format in available_formats %}
+                  <li>
+                    <a class="dropdown-item" href="{% add_query_param request api_settings.URL_FORMAT_OVERRIDE format %}"
+                      rel="nofollow" data-mdb-toggle="tooltip"
+                      title="Make a GET request on the {{ name }} resource with the format set to `{{ format|upper }}`">
+                      {{ format|upper }}
+                    </a>
+                  </li>
+                  {% endfor %}
+                </ul>
+              </div>
+            </div>
+            {% else %}
+            <a class="btn btn-lg btn-primary rounded-5" href="{{ request.get_full_path }}" rel="nofollow"
+              title="Make a GET request on the {{ name }} resource" data-mdb-toggle="tooltip">
+              <span class="d-flex align-items-center justify-content-center gap-4">
+                <i class="bi bi-arrow-clockwise"></i>
+                {% translate "GET" %}
+              </span>
+            </a>
+            {% endif %}
+          </fieldset>
+        </form>
+      {% endif %}
+
+      {% if options_form %}
+        <form class="button-form" action="{{ request.get_full_path }}" data-method="OPTIONS">
+          <button type="submit" class="btn btn-lg btn-dark w-100 rounded-5"
+            title="Make an OPTIONS request on the {{ name }} resource" data-mdb-toggle="tooltip">
+            <span class="d-flex align-items-center justify-content-center gap-4">
+              <i class="bi bi-info-square"></i>
+              {% translate "OPTIONS" %}
+            </span>
+          </button>
+        </form>
+      {% endif %}
+
+      {% if delete_form %}
+        <div>
+          <button type="button" class="btn btn-lg btn-danger w-100 rounded-5" data-mdb-toggle="modal"
+            data-mdb-target="#deleteModal" title="Make a DELETE request on the {{ name }} resource">
+            <span class="d-flex align-items-center justify-content-center gap-4">
+              <i class="bi bi-trash"></i>
+              {% translate "DELETE" %}
+            </span>
+          </button>
+        </div>
+
+        <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content p-md-3 p-lg-4 rounded-5 shadow">
+              <div class="modal-header border-bottom-0">
+                <h3 class="modal-title" id="exampleModalLabel">
+                  {% translate 'Delete' %} {{ name }}
+                </h3>
+                <button type="button" class="btn-close" data-mdb-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                <p class="mb-4">
+                  {% translate "Are you sure you want to delete this" %} {{ name }}?
+                </p>
+                <div class="d-grid d-lg-flex align-items-lg-center gap-4">
+                  <form class="button-form w-100" action="{{ request.get_full_path }}" data-method="DELETE">
+                    <button class="btn btn-lg btn-danger w-100 rounded-5">
+                      <span class="d-flex align-item-center justify-content-center gap-4">
+                        <i class="bi bi-trash"></i>
+                        {% translate "Delete" %}
+                      </span>
+                    </button>
+                  </form>
+                  <button type="button" class="btn btn-lg btn-outline-secondary w-100 rounded-5" data-mdb-dismiss="modal">
+                    <span class="d-flex align-item-center justify-content-center gap-4">
+                      <i class="bi bi-x-lg"></i>
+                      {% translate "Cancel" %}
+                    </span>
+                  </button>
+                </div>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </div>
-    {% endif %}
-
-    {% if extra_actions %}
-    <div class="dropdown">
-      <button class="btn btn-lg btn-info w-100 rounded-5" id="extra-actions-menu" data-mdb-toggle="dropdown"
-        aria-haspopup="true" aria-expanded="true">
-        <span class="d-flex align-items-center justify-content-center gap-4">
-          {% translate "Extra Actions" %}
-          <i class="bi bi-chevron-down"></i>
-        </span>
-      </button>
-      <ul class="dropdown-menu rounded-5 shadow-sm w-100" aria-labelledby="extra-actions-menu">
-        <li>
-          <h3 class="dropdown-header">
-            {% translate 'Select an action' %}
-          </h3>
-        </li>
-        {% for action_name, url in extra_actions|items %}
-        <li>
-          <a class="dropdown-item" href="{{ url }}">
-            {{ action_name }}
-          </a>
-        </li>
-        {% endfor %}
-      </ul>
-    </div>
-    {% endif %}
-
-    {% if filter_form %}
-    <button data-mdb-toggle="modal" data-mdb-target="#filtersModal" class="btn btn-lg btn-success rounded-5">
-      <span class="d-flex align-items-center justify-content-center gap-4">
-        <i class="bi bi-filter"></i>
-        {% translate "Filters" %}
-      </span>
-    </button>
-    {% endif %}
-  </section>
-  {% endblock %}
-
-  {% if paginator %}
-  <section title="{% translate 'Pagination' %}" class="d-flex align-item-center justify-content-end mb-4">
-    {% get_pagination_html paginator %}
-  </section>
-  {% endif %}
-
-  <div class="row g-4 mb-4" aria-label="{% translate 'Main content' %}">
-    <section class="col-12 col-lg-8 order-last order-lg-first" role="main" aria-label="{% translate 'Main content' %}">
-      <div class="card card-body rounded-5 p-4 shadow-sm">
-        <div class="request-info" aria-label="{% translate 'Request info' %}">
-          <pre class="prettyprint"><b>{{ request.method }}</b> {{ request.get_full_path }}</pre>
-        </div>
-
-        <div class="response-info" aria-label="{% translate 'response info' %}">
-          <pre
-            class="prettyprint d-grid gap-4"><div class="overflow-auto"><div><strong>HTTP {{ response.status_code }} {{ response.status_text }}</strong></div>{% for key, val in response_headers|items %}<div><strong>{{ key }}:</strong> <span class="lit">{{ val|break_long_headers|urlize }}</span></div>{% endfor %}</div><code>{{ content|urlize }}</code></pre>
-        </div>
-      </div>
-    </section>
-
-    <section class="col-12 col-lg-4">
-      {% if display_edit_forms %}
-      {% if post_form or raw_data_post_form %}
-      <div {% if post_form %}class="card card-body rounded-5 p-4 shadow-sm"{% endif %}>
-        {% if post_form %}
-        <ul class="nav nav-pills nav-fill mb-4 gap-4 p-1 shadow-sm rounded-5" role="tablist">
-          <li class="nav-item" role="presentation">
-            <button class="nav-link active rounded-5 m-0 w-100" id="form-tab" data-mdb-toggle="tab" data-mdb-target="#form"
-              type="button" role="tab" aria-controls="form" aria-selected="true">
-              <span class="d-flex align-items-center justify-content-center gap-4">
-                <i class="bi bi-filetype-html"></i>
-                {% translate 'HTML form' %}
-              </span>
-            </button>
-          </li>
-          <li class="nav-item" role="presentation">
-            <button class="nav-link rounded-5 m-0 w-100" id="raw-tab" data-mdb-toggle="tab" data-mdb-target="#raw" type="button"
-              role="tab" aria-controls="raw" aria-selected="false">
-              <span class="d-flex align-items-center justify-content-center gap-4">
-                <i class="bi bi-filetype-json"></i>
-                {% translate 'Raw data' %}
-              </span>
-            </button>
-          </li>
-        </ul>
-        {% endif %}
-
-        <div class="tab-content">
-          {% if post_form %}
-          <div class="tab-pane active" id="form" role="tabpanel" aria-labelledby="form-tab" tabindex="0">
-            {% with form=post_form %}
-            <form action="{{ request.get_full_path }}" method="POST" enctype="multipart/form-data"
-              class="form-horizontal" novalidate>
-              <fieldset>
-                {% csrf_token %}
-                {{ post_form }}
-                <div class="form-actions">
-                  <button class="btn btn-lg btn-primary w-100 rounded-5"
-                    title="Make a POST request on the {{ name }} resource" data-mdb-toggle="tooltip">
-                    <span class="d-flex align-items-center justify-content-center gap-4">
-                      <i class="bi bi-send-fill"></i>
-                      {% translate "POST" %}
-                    </span>
-                  </button>
-                </div>
-              </fieldset>
-            </form>
-            {% endwith %}
-          </div>
-          {% endif %}
-
-          <div class="tab-pane" id="raw" role="tabpanel" aria-labelledby="raw-tab" tabindex="0">
-            {% with form=raw_data_post_form %}
-            <form action="{{ request.get_full_path }}" method="POST" class="form-horizontal">
-              <fieldset>
-                {% include "rest_framework/raw_data_form.html" %}
-                <div class="form-actions">
-                  <button class="btn btn-lg btn-primary w-100 rounded-5"
-                    title="Make a POST request on the {{ name }} resource" data-mdb-toggle="tooltip">
-                    <span class="d-flex align-items-center justify-content-center gap-4">
-                      <i class="bi bi-send-fill"></i>
-                      {% translate "POST" %}
-                    </span>
-                  </button>
-                </div>
-              </fieldset>
-            </form>
-            {% endwith %}
-          </div>
-        </div>
-      </div>
       {% endif %}
 
-      {% if put_form or raw_data_put_form or raw_data_patch_form %}
-      <div {% if put_form %}class="card card-body rounded-5 p-4 shadow-sm" {% endif %}>
-        {% if put_form %}
-        <ul class="nav nav-pills nav-fill mb-4 gap-4 p-1 shadow-sm rounded-5" role="tablist">
-          <li class="nav-item" role="presentation">
-            <button class="nav-link active rounded-5 m-0 w-100" id="form-tab" data-mdb-toggle="tab"
-              data-mdb-target="#put-object-form" type="button" role="tab" aria-controls="form" aria-selected="true">
-              <span class="d-flex align-items-center justify-content-center gap-4">
-                <i class="bi bi-filetype-html"></i>
-                {% translate 'HTML form' %}
-              </span>
-            </button>
-          </li>
-          <li class="nav-item" role="presentation">
-            <button class="nav-link rounded-5 m-0 w-100" id="raw-tab" data-mdb-toggle="tab"
-              data-mdb-target="#put-generic-content-form" type="button" role="tab" aria-controls="raw"
-              aria-selected="false">
-              <span class="d-flex align-items-center justify-content-center gap-4">
-                <i class="bi bi-filetype-json"></i>
-                {% translate 'Raw data' %}
-              </span>
-            </button>
-          </li>
-        </ul>
-        {% endif %}
-
-        <div class="well tab-content">
-          {% if put_form %}
-          <div class="tab-pane active" id="put-object-form">
-            <form action="{{ request.get_full_path }}" data-method="PUT" enctype="multipart/form-data"
-              class="form-horizontal" novalidate>
-              <fieldset>
-                {{ put_form }}
-                <div class="form-actions">
-                  <button class="btn btn-lg btn-primary w-100 rounded-5"
-                    title="Make a PUT request on the {{ name }} resource" data-mdb-toggle="tooltip">
-                    <span class="d-flex align-items-center justify-content-center gap-4">
-                      <i class="bi bi-send-fill"></i>
-                      {% translate "PUT" %}
-                    </span>
-                  </button>
-                </div>
-              </fieldset>
-            </form>
-          </div>
-          {% endif %}
-
-          <div {% if put_form %}class="tab-pane" {% endif %} id="put-generic-content-form">
-            {% with form=raw_data_put_or_patch_form %}
-            <form action="{{ request.get_full_path }}" data-method="PUT" class="form-horizontal">
-              <fieldset>
-                {% include "rest_framework/raw_data_form.html" %}
-                <div class="form-actions">
-                  {% if raw_data_put_form %}
-                  <button class="btn btn-lg btn-primary w-100 rounded-5"
-                    title="Make a PUT request on the {{ name }} resource" data-mdb-toggle="tooltip">
-                    <span class="d-flex align-items-center justify-content-center gap-4">
-                      <i class="bi bi-send-fill"></i>
-                      {% translate "PUT" %}
-                    </span>
-                  </button>
-                  {% endif %}
-                  {% if raw_data_patch_form %}
-                  <button data-method="PATCH" class="btn btn-lg btn-outline-primary w-100 mt-4 rounded-5"
-                    title="Make a PATCH request on the {{ name }} resource" data-mdb-toggle="tooltip">
-                    <span class="d-flex align-items-center justify-content-center gap-4">
-                      <i class="bi bi-send-fill"></i>
-                      {% translate "PATCH" %}
-                    </span>
-                  </button>
-                  {% endif %}
-                </div>
-              </fieldset>
-            </form>
-            {% endwith %}
-          </div>
+      {% if extra_actions %}
+        <div class="dropdown">
+          <button class="btn btn-lg btn-info w-100 rounded-5" id="extra-actions-menu" data-mdb-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="true">
+            <span class="d-flex align-items-center justify-content-center gap-4">
+              {% translate "Extra Actions" %}
+              <i class="bi bi-chevron-down"></i>
+            </span>
+          </button>
+          <ul class="dropdown-menu rounded-5 shadow-sm w-100" aria-labelledby="extra-actions-menu">
+            <li>
+              <h3 class="dropdown-header">
+                {% translate 'Select an action' %}
+              </h3>
+            </li>
+            {% for action_name, url in extra_actions|items %}
+            <li>
+              <a class="dropdown-item" href="{{ url }}">
+                {{ action_name }}
+              </a>
+            </li>
+            {% endfor %}
+          </ul>
         </div>
-      </div>
       {% endif %}
+
+      {% if filter_form %}
+        <button data-mdb-toggle="modal" data-mdb-target="#filtersModal" class="btn btn-lg btn-success rounded-5">
+          <span class="d-flex align-items-center justify-content-center gap-4">
+            <i class="bi bi-filter"></i>
+            {% translate "Filters" %}
+          </span>
+        </button>
       {% endif %}
     </section>
-  </div>
-</main>
+    {% endblock %}
+
+    {% if paginator %}
+    <section title="{% translate 'Pagination' %}" class="d-flex align-item-center justify-content-end mb-4">
+      {% get_pagination_html paginator %}
+    </section>
+    {% endif %}
+
+    <div class="row g-4 mb-4" aria-label="{% translate 'Main content' %}">
+      <section class="col-12 col-lg-8 order-last order-lg-first" role="main" aria-label="{% translate 'Main content' %}">
+        <div class="card card-body rounded-5 p-4 shadow-sm">
+          <div class="request-info" aria-label="{% translate 'Request info' %}">
+            <pre class="prettyprint"><b>{{ request.method }}</b> {{ request.get_full_path }}</pre>
+          </div>
+
+          <div class="response-info" aria-label="{% translate 'response info' %}">
+            <pre
+              class="prettyprint d-grid gap-4"><div class="overflow-auto"><div><strong>HTTP {{ response.status_code }} {{ response.status_text }}</strong></div>{% for key, val in response_headers|items %}<div><strong>{{ key }}:</strong> <span class="lit">{{ val|break_long_headers|urlize }}</span></div>{% endfor %}</div><code>{{ content|urlize }}</code></pre>
+          </div>
+        </div>
+      </section>
+
+      <section class="col-12 col-lg-4">
+        {% if display_edit_forms %}
+          {% if post_form or raw_data_post_form %}
+            <div {% if post_form %}class="card card-body rounded-5 p-4 shadow-sm"{% endif %}>
+              {% if post_form %}
+                <ul class="nav nav-pills nav-fill mb-4 gap-4 p-1 shadow-sm rounded-5" role="tablist">
+                  <li class="nav-item" role="presentation">
+                    <button class="nav-link active rounded-5 m-0 w-100" id="form-tab" data-mdb-toggle="tab" data-mdb-target="#form"
+                      type="button" role="tab" aria-controls="form" aria-selected="true">
+                      <span class="d-flex align-items-center justify-content-center gap-4">
+                        <i class="bi bi-filetype-html"></i>
+                        {% translate 'HTML form' %}
+                      </span>
+                    </button>
+                  </li>
+                  <li class="nav-item" role="presentation">
+                    <button class="nav-link rounded-5 m-0 w-100" id="raw-tab" data-mdb-toggle="tab" data-mdb-target="#raw" type="button"
+                      role="tab" aria-controls="raw" aria-selected="false">
+                      <span class="d-flex align-items-center justify-content-center gap-4">
+                        <i class="bi bi-filetype-json"></i>
+                        {% translate 'Raw data' %}
+                      </span>
+                    </button>
+                  </li>
+                </ul>
+              {% endif %}
+
+              <div class="tab-content">
+                {% if post_form %}
+                  <div class="tab-pane active" id="form" role="tabpanel" aria-labelledby="form-tab" tabindex="0">
+                    {% with form=post_form %}
+                    <form action="{{ request.get_full_path }}" method="POST" enctype="multipart/form-data"
+                      class="form-horizontal" novalidate>
+                      <fieldset>
+                        {% csrf_token %}
+                        {{ post_form }}
+                        <div class="form-actions">
+                          <button class="btn btn-lg btn-primary w-100 rounded-5"
+                            title="Make a POST request on the {{ name }} resource" data-mdb-toggle="tooltip">
+                            <span class="d-flex align-items-center justify-content-center gap-4">
+                              <i class="bi bi-send-fill"></i>
+                              {% translate "POST" %}
+                            </span>
+                          </button>
+                        </div>
+                      </fieldset>
+                    </form>
+                    {% endwith %}
+                  </div>
+                {% endif %}
+
+                <div class="tab-pane" id="raw" role="tabpanel" aria-labelledby="raw-tab" tabindex="0">
+                  {% with form=raw_data_post_form %}
+                  <form action="{{ request.get_full_path }}" method="POST" class="form-horizontal">
+                    <fieldset>
+                      {% include "rest_framework/raw_data_form.html" %}
+                      <div class="form-actions">
+                        <button class="btn btn-lg btn-primary w-100 rounded-5"
+                          title="Make a POST request on the {{ name }} resource" data-mdb-toggle="tooltip">
+                          <span class="d-flex align-items-center justify-content-center gap-4">
+                            <i class="bi bi-send-fill"></i>
+                            {% translate "POST" %}
+                          </span>
+                        </button>
+                      </div>
+                    </fieldset>
+                  </form>
+                  {% endwith %}
+                </div>
+              </div>
+
+              <p class="small mb-0 mt-4">
+                <span class="text-danger">*</span> Indicates Required
+              </p>
+            </div>
+          {% endif %}
+
+          {% if put_form or raw_data_put_form or raw_data_patch_form %}
+            <div {% if put_form %}class="card card-body rounded-5 p-4 shadow-sm" {% endif %}>
+              {% if put_form %}
+                <ul class="nav nav-pills nav-fill mb-4 gap-4 p-1 shadow-sm rounded-5" role="tablist">
+                  <li class="nav-item" role="presentation">
+                    <button class="nav-link active rounded-5 m-0 w-100" id="form-tab" data-mdb-toggle="tab"
+                      data-mdb-target="#put-object-form" type="button" role="tab" aria-controls="form" aria-selected="true">
+                      <span class="d-flex align-items-center justify-content-center gap-4">
+                        <i class="bi bi-filetype-html"></i>
+                        {% translate 'HTML form' %}
+                      </span>
+                    </button>
+                  </li>
+                  <li class="nav-item" role="presentation">
+                    <button class="nav-link rounded-5 m-0 w-100" id="raw-tab" data-mdb-toggle="tab"
+                      data-mdb-target="#put-generic-content-form" type="button" role="tab" aria-controls="raw"
+                      aria-selected="false">
+                      <span class="d-flex align-items-center justify-content-center gap-4">
+                        <i class="bi bi-filetype-json"></i>
+                        {% translate 'Raw data' %}
+                      </span>
+                    </button>
+                  </li>
+                </ul>
+              {% endif %}
+
+              <div class="tab-content">
+                {% if put_form %}
+                  <div class="tab-pane active" id="put-object-form">
+                    <form action="{{ request.get_full_path }}" data-method="PUT" enctype="multipart/form-data"
+                      class="form-horizontal" novalidate>
+                      <fieldset>
+                        {{ put_form }}
+                        <div class="form-actions">
+                          <button class="btn btn-lg btn-primary w-100 rounded-5"
+                            title="Make a PUT request on the {{ name }} resource" data-mdb-toggle="tooltip">
+                            <span class="d-flex align-items-center justify-content-center gap-4">
+                              <i class="bi bi-send-fill"></i>
+                              {% translate "PUT" %}
+                            </span>
+                          </button>
+                        </div>
+                      </fieldset>
+                    </form>
+                  </div>
+                {% endif %}
+
+                <div {% if put_form %}class="tab-pane" {% endif %} id="put-generic-content-form">
+                  {% with form=raw_data_put_or_patch_form %}
+                  <form action="{{ request.get_full_path }}" data-method="PUT" class="form-horizontal">
+                    <fieldset>
+                      {% include "rest_framework/raw_data_form.html" %}
+                      <div class="form-actions">
+                        {% if raw_data_put_form %}
+                        <button class="btn btn-lg btn-primary w-100 rounded-5"
+                          title="Make a PUT request on the {{ name }} resource" data-mdb-toggle="tooltip">
+                          <span class="d-flex align-items-center justify-content-center gap-4">
+                            <i class="bi bi-send-fill"></i>
+                            {% translate "PUT" %}
+                          </span>
+                        </button>
+                        {% endif %}
+                        {% if raw_data_patch_form %}
+                        <button data-method="PATCH" class="btn btn-lg btn-outline-primary w-100 mt-4 rounded-5"
+                          title="Make a PATCH request on the {{ name }} resource" data-mdb-toggle="tooltip">
+                          <span class="d-flex align-items-center justify-content-center gap-4">
+                            <i class="bi bi-send-fill"></i>
+                            {% translate "PATCH" %}
+                          </span>
+                        </button>
+                        {% endif %}
+                      </div>
+                    </fieldset>
+                  </form>
+                  {% endwith %}
+                </div>
+              </div>
+
+              <p class="small mb-0 mt-4">
+                <span class="text-danger">*</span> Indicates Required
+              </p>
+            </div>
+          {% endif %}
+        {% endif %}
+      </section>
+    </div>
+  </main>
 {% endblock %}
 
 {% if filter_form %}
-{{ filter_form }}
+  {{ filter_form }}
 {% endif %}
 
 {% block script %}
-{{ block.super }}
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.4.1/mdb.min.js"></script>
+  {{ block.super }}
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.4.2/mdb.min.js"></script>
 {% endblock %}
