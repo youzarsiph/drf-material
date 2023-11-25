@@ -10,8 +10,8 @@ homepage = "https://github.com/youzarsiph/rest-framework-material/"
 repository = "https://github.com/youzarsiph/rest-framework-material/"
 
 [tool.poetry.dependencies]
-python = "^3.9"
-django = "^4.2"
+python = "^3.7"
+django = "^3.0"
 djangorestframework = "^3.14"
 
 
