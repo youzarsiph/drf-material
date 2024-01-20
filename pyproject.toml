@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "rest-framework-material"
-version = "0.2.1"
+version = "0.2.2"
 description = "Material design for Django REST Framework API"
 authors = ["Yousef Abu Shanab <josephyousef249@gmail.com>"]
 license = "MIT"
@@ -10,9 +10,9 @@ homepage = "https://github.com/youzarsiph/rest-framework-material/"
 repository = "https://github.com/youzarsiph/rest-framework-material/"
 
 [tool.poetry.dependencies]
-python = "^3.7"
-django = "^3.0"
-djangorestframework = "^3.14"
+python = ">=3.7"
+django = ">=3.0"
+djangorestframework = ">=3.14"
 
 
 [build-system]
