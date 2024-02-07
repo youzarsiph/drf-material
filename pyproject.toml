@@ -1,13 +1,13 @@
 [tool.poetry]
-name = "rest-framework-material"
-version = "0.2.3"
+name = "drf-material"
+version = "0.2.4"
 description = "Material design for Django REST Framework API"
 authors = ["Yousef Abu Shanab <josephyousef249@gmail.com>"]
 license = "MIT"
 readme = "README.md"
-packages = [{include = "rest_framework_material"}]
-homepage = "https://github.com/youzarsiph/rest-framework-material/"
-repository = "https://github.com/youzarsiph/rest-framework-material/"
+packages = [{include = "drf_material"}]
+homepage = "https://github.com/youzarsiph/drf-material/"
+repository = "https://github.com/youzarsiph/drf-material/"
 
 [tool.poetry.dependencies]
 python = ">=3.7"
