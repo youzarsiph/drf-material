@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "drf-material"
-version = "0.2.4"
+version = "0.2.5"
 description = "Material design for Django REST Framework API"
 authors = ["Yousef Abu Shanab <josephyousef249@gmail.com>"]
 license = "MIT"

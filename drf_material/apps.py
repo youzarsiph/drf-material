@@ -1,11 +1,10 @@
-""" AppConf for rest_framework_material """
-
+""" AppConf for DRF Material """
 
 from django.apps import AppConfig
 
 
-class RestFrameworkMaterialConfig(AppConfig):
-    """App configuration for the app"""
+class DRFMaterialConfig(AppConfig):
+    """App configuration for drf_material"""
 
-    name = "rest_framework_material"
+    name = "drf_material"
     default_auto_field = "django.db.models.BigAutoField"

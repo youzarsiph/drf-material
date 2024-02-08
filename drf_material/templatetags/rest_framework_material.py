@@ -1,6 +1,5 @@
 """ Customizes template tags from DRF """
 
-
 from django.template import Library
 from django.urls import NoReverseMatch, reverse
 from django.utils.html import escape, format_html
