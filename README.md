@@ -28,13 +28,13 @@ We're sure you'll be impressed by it as much as we are!
 
 To use drf-material, follow these simple steps:
 
-- Install the package:
+Install the package:
 
 ```console
 pip install drf-material
 ```
 
-- Add `drf_material` to `INSTALLED_APPS` setting, before `rest_framework`
+Add `drf_material` to `INSTALLED_APPS` setting, before `rest_framework`
 
 ```python
 # settings.py

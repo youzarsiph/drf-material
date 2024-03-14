@@ -1,4 +1,4 @@
-""" AppConf for DRF Material """
+""" AppConf for drf_material """
 
 from django.apps import AppConfig
 

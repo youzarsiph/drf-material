@@ -1,1 +1,1 @@
-""" Template Tags and Filters for DRFM """
+""" Template Tags and Filters for drf_material """
