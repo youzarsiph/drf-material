@@ -1,5 +1,9 @@
 # 🎨 drf-material
 
+[![Pylint](https://github.com/youzarsiph/drf-material/actions/workflows/pylint.yml/badge.svg)](https://github.com/youzarsiph/drf-material/actions/workflows/pylint.yml)
+[![Django CI](https://github.com/youzarsiph/drf-material/actions/workflows/django.yml/badge.svg)](https://github.com/youzarsiph/drf-material/actions/workflows/django.yml)
+[![Upload Python Package](https://github.com/youzarsiph/drf-material/actions/workflows/python-publish.yml/badge.svg)](https://github.com/youzarsiph/drf-material/actions/workflows/python-publish.yml)
+
 **drf-material** is a project that gives a sleek and elegant look to the browsable API of Django REST Framework using Material Design.
 
 We want to make the API more **appealing** and **intuitive** for developers and users alike.
