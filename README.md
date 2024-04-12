@@ -1,6 +1,7 @@
 # 🎨 drf-material
 
-[![Pylint](https://github.com/youzarsiph/drf-material/actions/workflows/pylint.yml/badge.svg)](https://github.com/youzarsiph/drf-material/actions/workflows/pylint.yml)
+[![MIT License](https://img.shields.io/badge/License-MIT-green.svg)](https://choosealicense.com/licenses/mit/)
+[![Ruff](https://github.com/youzarsiph/drf-material/actions/workflows/ruff.yml/badge.svg)](https://github.com/youzarsiph/drf-material/actions/workflows/ruff.yml)
 [![Django CI](https://github.com/youzarsiph/drf-material/actions/workflows/django.yml/badge.svg)](https://github.com/youzarsiph/drf-material/actions/workflows/django.yml)
 [![Upload Python Package](https://github.com/youzarsiph/drf-material/actions/workflows/python-publish.yml/badge.svg)](https://github.com/youzarsiph/drf-material/actions/workflows/python-publish.yml)
 
@@ -23,7 +24,7 @@ We're sure you'll be impressed by it as much as we are!
   ensuring that the API is easy to use for everyone, regardless of their abilities or preferences.
 - **Form input max length indicators**: drf-material shows the maximum length of each form input field,
   so you know how much data you can enter. The indicators also change color when you reach the limit, giving you visual feedback.
-- **Form inputs required indicators**: drf-material marks the required form input fields with an asterisk (*),
+- **Form inputs required indicators**: drf-material marks the required form input fields with an asterisk (\*),
   so you know which fields are mandatory to submit the form. The indicators also show an error message if you try to submit the form without filling the required fields.
 - **Browser form validation**: drf-material uses the built-in browser form validation features, such as HTML5 attributes
   to validate the form input data before sending it to the server. The validation checks for data types, formats, patterns, ranges, and more.
