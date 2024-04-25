@@ -175,7 +175,7 @@
           <fieldset>
             {% if api_settings.URL_FORMAT_OVERRIDE %}
             <div class="btn-group w-100 gap-4 rounded-5" role="group">
-              <a class="btn btn-lg btn-primary w-100 rounded-5" href="{{ request.get_full_path }}" rel="nofollow"
+              <a class="btn btn-primary w-100 rounded-5" href="{{ request.get_full_path }}" rel="nofollow"
                 title="Make a GET request on the {{ name }} resource" data-mdb-toggle="tooltip">
                 <span class="d-flex align-items-center justify-content-center gap-4">
                   <i class="bi bi-arrow-clockwise"></i>
@@ -183,7 +183,7 @@
                 </span>
               </a>
               <div class="dropdown">
-                <button class="btn btn-lg btn-outline-primary dropdown-toggle rounded-5" type="button" id="dropdownMenuButton"
+                <button class="btn btn-outline-primary dropdown-toggle rounded-5" type="button" id="dropdownMenuButton"
                   data-mdb-toggle="dropdown" aria-expanded="false">
                   <i class="bi bi-chevron-down"></i>
                 </button>
@@ -206,7 +206,7 @@
               </div>
             </div>
             {% else %}
-            <a class="btn btn-lg btn-primary rounded-5" href="{{ request.get_full_path }}" rel="nofollow"
+            <a class="btn btn-primary rounded-5" href="{{ request.get_full_path }}" rel="nofollow"
               title="Make a GET request on the {{ name }} resource" data-mdb-toggle="tooltip">
               <span class="d-flex align-items-center justify-content-center gap-4">
                 <i class="bi bi-arrow-clockwise"></i>
@@ -220,7 +220,7 @@
 
       {% if options_form %}
         <form class="button-form" action="{{ request.get_full_path }}" data-method="OPTIONS">
-          <button type="submit" class="btn btn-lg btn-dark w-100 rounded-5"
+          <button type="submit" class="btn btn-info w-100 rounded-5"
             title="Make an OPTIONS request on the {{ name }} resource" data-mdb-toggle="tooltip">
             <span class="d-flex align-items-center justify-content-center gap-4">
               <i class="bi bi-info-square"></i>
@@ -232,7 +232,7 @@
 
       {% if delete_form %}
         <div>
-          <button type="button" class="btn btn-lg btn-danger w-100 rounded-5" data-mdb-toggle="modal"
+          <button type="button" class="btn btn-danger w-100 rounded-5" data-mdb-toggle="modal"
             data-mdb-target="#deleteModal" title="Make a DELETE request on the {{ name }} resource">
             <span class="d-flex align-items-center justify-content-center gap-4">
               <i class="bi bi-trash"></i>
@@ -256,14 +256,14 @@
                 </p>
                 <div class="d-grid d-lg-flex align-items-lg-center gap-4">
                   <form class="button-form w-100" action="{{ request.get_full_path }}" data-method="DELETE">
-                    <button class="btn btn-lg btn-danger w-100 rounded-5">
+                    <button class="btn btn-danger w-100 rounded-5">
                       <span class="d-flex align-item-center justify-content-center gap-4">
                         <i class="bi bi-trash"></i>
                         {% translate "Delete" %}
                       </span>
                     </button>
                   </form>
-                  <button type="button" class="btn btn-lg btn-outline-secondary w-100 rounded-5" data-mdb-dismiss="modal">
+                  <button type="button" class="btn btn-outline-secondary w-100 rounded-5" data-mdb-dismiss="modal">
                     <span class="d-flex align-item-center justify-content-center gap-4">
                       <i class="bi bi-x-lg"></i>
                       {% translate "Cancel" %}
@@ -278,7 +278,7 @@
 
       {% if extra_actions %}
         <div class="dropdown">
-          <button class="btn btn-lg btn-info w-100 rounded-5" id="extra-actions-menu" data-mdb-toggle="dropdown"
+          <button class="btn btn-info w-100 rounded-5" id="extra-actions-menu" data-mdb-toggle="dropdown"
             aria-haspopup="true" aria-expanded="true">
             <span class="d-flex align-items-center justify-content-center gap-4">
               {% translate "Extra Actions" %}
@@ -303,7 +303,7 @@
       {% endif %}
 
       {% if filter_form %}
-        <button data-mdb-toggle="modal" data-mdb-target="#filtersModal" class="btn btn-lg btn-success rounded-5">
+        <button data-mdb-toggle="modal" data-mdb-target="#filtersModal" class="btn btn-success rounded-5">
           <span class="d-flex align-items-center justify-content-center gap-4">
             <i class="bi bi-filter"></i>
             {% translate "Filters" %}
@@ -369,7 +369,7 @@
                         {% csrf_token %}
                         {{ post_form }}
                         <div class="form-actions">
-                          <button class="btn btn-lg btn-primary w-100 rounded-5"
+                          <button class="btn btn-primary w-100 rounded-5"
                             title="Make a POST request on the {{ name }} resource" data-mdb-toggle="tooltip">
                             <span class="d-flex align-items-center justify-content-center gap-4">
                               <i class="bi bi-send-fill"></i>
@@ -389,7 +389,7 @@
                     <fieldset>
                       {% include "rest_framework/raw_data_form.html" %}
                       <div class="form-actions">
-                        <button class="btn btn-lg btn-primary w-100 rounded-5"
+                        <button class="btn btn-primary w-100 rounded-5"
                           title="Make a POST request on the {{ name }} resource" data-mdb-toggle="tooltip">
                           <span class="d-flex align-items-center justify-content-center gap-4">
                             <i class="bi bi-send-fill"></i>
@@ -442,7 +442,7 @@
                       <fieldset>
                         {{ put_form }}
                         <div class="form-actions">
-                          <button class="btn btn-lg btn-primary w-100 rounded-5"
+                          <button class="btn btn-primary w-100 rounded-5"
                             title="Make a PUT request on the {{ name }} resource" data-mdb-toggle="tooltip">
                             <span class="d-flex align-items-center justify-content-center gap-4">
                               <i class="bi bi-send-fill"></i>
@@ -462,7 +462,7 @@
                       {% include "rest_framework/raw_data_form.html" %}
                       <div class="form-actions">
                         {% if raw_data_put_form %}
-                        <button class="btn btn-lg btn-primary w-100 rounded-5"
+                        <button class="btn btn-primary w-100 rounded-5"
                           title="Make a PUT request on the {{ name }} resource" data-mdb-toggle="tooltip">
                           <span class="d-flex align-items-center justify-content-center gap-4">
                             <i class="bi bi-send-fill"></i>
@@ -471,7 +471,7 @@
                         </button>
                         {% endif %}
                         {% if raw_data_patch_form %}
-                        <button data-method="PATCH" class="btn btn-lg btn-outline-primary w-100 mt-4 rounded-5"
+                        <button data-method="PATCH" class="btn btn-outline-primary w-100 mt-4 rounded-5"
                           title="Make a PATCH request on the {{ name }} resource" data-mdb-toggle="tooltip">
                           <span class="d-flex align-items-center justify-content-center gap-4">
                             <i class="bi bi-send-fill"></i>
