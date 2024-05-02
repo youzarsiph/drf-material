@@ -29,6 +29,11 @@ We're sure you'll be impressed by it as much as we are!
 - **Browser form validation**: drf-material uses the built-in browser form validation features, such as HTML5 attributes
   to validate the form input data before sending it to the server. The validation checks for data types, formats, patterns, ranges, and more.
 
+## Screenshots
+
+![DRF Material](assets/img/drf-material.jpeg)
+DRF Material
+
 ## 🛠️ Get started
 
 To use drf-material, follow these simple steps:
