@@ -50,7 +50,7 @@ Add `drf_material` to `INSTALLED_APPS` setting, before `rest_framework`
 # settings.py
 
 INSTALLED_APPS = [
-    ...
+    ...,
     'drf_material',
     'rest_framework',
     ...
